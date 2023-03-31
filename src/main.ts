@@ -17,17 +17,21 @@ import { bootstrapApplication } from '@angular/platform-browser';
 export class App {
   name = 'Angular';
 
-  constructor(){
+  constructor() {
+    try {
+      this.patch();
+    } catch (e) {
+      console.log('\n Angular patch XML exception.');
+      console.log(e.message);
+    } finally {
+      console.log('\n Angular TypeScript patch XML constructor finally');
+    }
+  } // end constructor
 
-    this.patch();
-    
-  } // end constructor 
-
-  patch():void{
-
+  patch(): void {
     const xhr = new XMLHttpRequest();
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           // Handle successful response
@@ -38,23 +42,23 @@ export class App {
         }
       }
     };
-    
-    const url = 'https://example.com/api/resource';
-    const data = {foo: 'bar'};
-    
+
+    const url = 'https://angular-d6n5ba.stackblitz.io/api/resource';
+    const data:any = { foo: 'bar' };
+
     xhr.open('PATCH', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(data));
 
     const express = require('express');
-const app = express();
+    const app = express();
 
-app.patch('/data.xml', function(req, res) {
-  // Set the Content-Type header to application/xml
-  res.set('Content-Type', 'application/xml');
+    app.patch('/data.xml', function (req:any, res:any) {
+      // Set the Content-Type header to application/xml
+      res.set('Content-Type', 'application/xml');
 
-  // Create the XML data as a string
-  const xmlData = `
+      // Create the XML data as a string
+      const xmlData = `
     <?xml version="1.0" encoding="UTF-8"?>
     <data>
       <item>
@@ -68,16 +72,14 @@ app.patch('/data.xml', function(req, res) {
     </data>
   `;
 
-  // Send the XML data as the response body
-  res.send(xmlData);
-});
+      // Send the XML data as the response body
+      res.send(xmlData);
+    });
 
-app.listen(3000, function() {
-  console.log('Server listening on port 3000');
-});
-
+    app.listen(3000, function () {
+      console.log('Server listening on port 3000');
+    });
   } // end function patch
-
 } // end class App
 
 bootstrapApplication(App);
