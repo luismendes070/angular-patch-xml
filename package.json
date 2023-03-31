@@ -11,6 +11,7 @@
     "e2e": "ng e2e"
   },
   "dependencies": {
+    "express": "latest",
     "@angular/animations": "^15.1.2",
     "@angular/common": "^15.1.2",
     "@angular/compiler": "^15.1.2",
