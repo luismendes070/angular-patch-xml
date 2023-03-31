@@ -22,7 +22,11 @@ export class App {
       this.patch();
     } catch (err) {
       console.log('\n Angular patch XML exception.');
-      console.log(e.message);
+      // console.log(e.message);
+        // Works! We can narrow 'err' from 'unknown' to 'Error'.
+  if (err instanceof Error) {
+    console.error(err.message);
+  }
     } finally {
       console.log('\n Angular TypeScript patch XML constructor finally');
     }
