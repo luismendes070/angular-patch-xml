@@ -20,7 +20,7 @@ export class App {
   constructor() {
     try {
       this.patch();
-    } catch (e:any) {
+    } catch (err) {
       console.log('\n Angular patch XML exception.');
       console.log(e.message);
     } finally {
