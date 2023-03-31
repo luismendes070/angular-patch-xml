@@ -18,5 +18,8 @@
   "angularCompilerOptions": {
     "strictTemplates": true,
     "strictInjectionParameters": true
-  }
+  },
+  "types": [
+    "node", "@types/express"
+  ]  
 }
