@@ -21,7 +21,7 @@
     "strictInjectionParameters": true
   },
   "types": [
-    "node", "@types/express"
+    "@types/node", "@types/express"
   ],
   "include": [
     "./declaration.d.ts"
