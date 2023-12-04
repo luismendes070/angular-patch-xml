@@ -1,17 +1,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowJs": true,
     "strict": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "declaration": false,
+    "declaration": true,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2022",
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"]
   },
@@ -20,6 +21,9 @@
     "strictInjectionParameters": true
   },
   "types": [
-    "node", "@types/express"
+    "@types/node", "@types/express"
+  ],
+  "include": [
+    "./declaration.d.ts"
   ]  
 }
